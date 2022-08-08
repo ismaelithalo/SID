@@ -1,0 +1,58 @@
+[
+    {
+        "_type": "Curso",
+        "codigo": "6351",
+        "nome": "ENGENHARIA DE REDES DE COMUNICAÇÃO",
+        "modalidade": "Presencial",
+        "grauAcademico": "Bacharel",
+        "turno": "Diurno",
+        "sede": "Asa Norte",
+        "coordenador": {
+            "nome": "DANIEL GUERREIRO E SILVA"
+        },
+        "unidades": [
+            {
+                "codigo": "ENE",
+                "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
+        ],
+        "curriculos": [
+            {
+                "codigo": "6351/1",
+                "status": "Ativo"
+            },
+            {
+                "codigo": "6351/-2",
+                "status": "Ativo"
+            }
+        ]
+    },
+    {
+        "_type": "Curso",
+        "codigo": "6335",
+        "nome": "ENGENHARIA ELÉTRICA",
+        "modalidade": "Presencial",
+        "grauAcademico": "Engenheiro Eletricista",
+        "turno": "Diurno",
+        "sede": "Asa Norte",
+        "coordenador": {
+            "nome": "EDUARDO PEIXOTO FERNANDES DA SILVA"
+        },
+        "unidades": [
+            {
+                "codigo": "ENE",
+                "nome": "DEPARTAMENTO DE ENGENHARIA ELÉTRICA"
+            }
+        ],
+        "curriculos": [
+            {
+                "codigo": "6335/1",
+                "status": "Ativo"
+            },
+            {
+                "codigo": "6335/-2",
+                "status": "Ativo"
+            }
+        ]
+    }
+]

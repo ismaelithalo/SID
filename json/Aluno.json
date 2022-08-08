@@ -1,0 +1,16 @@
+{
+    "_type": "Aluno",
+    "matricula": "190030194",
+    "nome": "Ismael Ithalo Barbosa Pinto",
+    "curriculo": "6351/1",
+    "ira": 3.8,
+    "periodoIngresso": {
+        "ano": 2019,
+        "numero": 1
+    },
+    "curso": {
+        "_type": "Curso",
+        "codigo": "6351",
+        "nome": "ENGENHARIA DE REDES DE COMUNICAÇÃO"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "_type": "Aluno",
+    "matricula": "210004747",
+    "nome": "Ricardo Staciarini Puttini",
+    "curriculo": "6351/2",
+    "ira": 3.9,
+    "periodoIngresso": {
+        "ano": 2021,
+        "numero": 1
+    },
+    "curso": {
+        "_type": "Curso",
+        "codigo": "6351",
+        "nome": "ENGENHARIA DE REDES DE COMUNICAÇÃO"
+    }
+}

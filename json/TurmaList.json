@@ -1,0 +1,18 @@
+[
+    {
+        "_type": "Turma",
+        "codigo": "02",
+        "disciplina": {
+            "codigo": "ENE0045",
+            "nome": "ELETRÔNICA"
+        }
+    },
+    {
+        "_type": "Turma",
+        "codigo": "03",
+        "disciplina": {
+            "codigo": "ENE0046",
+            "nome": "LABORATÓRIO DE ELETRÔNICA"
+        }
+    }
+]

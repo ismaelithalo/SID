@@ -1,0 +1,414 @@
+swagger: '2.0'
+info:
+  description: preencher...
+  version: 1.0.0
+  title: Graduação
+  termsOfService: http://sid.redes.unb.br/termos/
+  contact:
+    email: puttini@unb.br
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: sid.redes.unb.br:8280
+basePath: /api/graduacao/prof
+tags:
+  - name: Aluno
+  - name: Curso
+  - name: Disciplina
+  - name: HistoricoAcademico
+  - name: Matricula
+  - name: Turma
+schemes:
+  - https
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /Aluno:
+    get:
+      summary: pesquisa alunos
+      description: ''
+      operationId: searchAluno
+      parameters:
+        - name: nome
+          in: query
+          description: (Parte do) nome dos alunos 
+          required: false
+          type: string
+        - name: curriculo
+          in: query
+          description: código do currículo dos alunos
+          required: false
+          type: string
+        - name: curso
+          in: query
+          description: código do curso dos alunos
+          required: false
+          type: string
+        - name: unidade
+          in: query
+          description: código da unidade (do curso) dos alunos
+          required: false
+          type: string
+      responses:
+        '200':
+          description: ok
+          schema:
+            $ref: '#/definitions/AlunoList'
+      tags:
+       - Aluno
+  /Aluno/{id}:   
+    parameters:
+      - name: id
+        in: path
+        description: id (matrícula) do aluno
+        required: true
+        type: string
+    get:
+      summary: consulta/detalha aluno
+      description: ''
+      operationId: detailAluno
+      responses:
+        '200':
+          description: ok
+          schema:
+            $ref: '#/definitions/Aluno'
+        '404':
+          description: not found
+      tags:
+       - Aluno
+  /Curso:
+    get:
+      operationId: searchCurso
+      parameters:
+        - name: nome
+        - name: unidade
+        - name: sede
+      responses:
+        '200':
+  /Curso/{id}:
+    parameters:
+      - name: id
+    get:
+      operationId: detailCurso
+      responses:
+        '200':
+        '404':
+  /Curso/{id}/curriculos:
+    parameters:
+      - name: id
+    get:
+      operationId: searchCurriculoCurso
+      parameters:
+        - name: status
+      responses:
+        '200':
+        '404':
+  /Curso/{id}/curriculos/{curriculo}:
+    parameters:
+      - name: id
+      - name: curriculo
+    get:
+      operationId: detailCurriculoCurso
+      responses:
+        '200':
+        '404':
+  /Curso/{id}/curriculos/{curriculo}/disciplinas:
+    parameters:
+      - name: id
+      - name: curriculo
+    get:
+      operationId: searchDisciplinaCurriculoCurso
+      parameters:
+        - name: status
+        - name: tipo
+        - name: nivel
+        - name: modalidade
+      responses:
+        '200':
+        '404':
+  /Curso/{id}/curriculos/{curriculo}/disciplinas/{disciplina}:
+    parameters:
+      - name: id
+      - name: curriculo
+      - name: disciplina
+    get:
+      operationId: detailDisciplinaCurriculoCurso
+      parameters:
+        - name: status
+        - name: tipo
+        - name: nivel
+        - name: modalidade
+      responses:
+        '200':
+        '404':
+  /Disciplina:
+    get:
+      operationId: searchDisciplina
+      parameters:
+        - name: nome
+        - name: unidade
+      responses:
+        '200':
+  /Disciplina/{id}:
+    parameters:
+      - name: id
+    get:
+      operationId: detailDisciplina
+      responses:
+        '200':
+        '404':
+  /HistoricoAcademico/{id}:
+    parameters:
+      - name: id
+        description: id (matrícula do aluno) do histórico
+    get:
+      operationId: detailHistoricoAcademico
+      responses:
+        '200':
+        '404':
+  /HistoricoAcademico/{id}/disciplinas:
+    parameters:
+      - name: id
+    get:
+      operationId: searchDisciplinaHistoricoAcademico
+      parameters:
+        - name: status
+        - name: periodo
+      responses:
+        '200':
+        '404':
+  /HistoricoAcademico/{id}/disciplinas/{disciplina}:
+    parameters:
+      - name: id
+      - name: disciplina
+    get:
+      operationId: detailDisciplinaHistoricoAcademico
+      responses:
+        '200':
+        '404':
+  /HistoricoAcademico/{id}/disciplinas/{disciplina}/$prerequisitos:
+    parameters:
+      - name: id
+      - name: disciplina
+    get:
+      operationId: verificaPreRequisitosHistoricoAcademico
+      responses:
+        '200':
+        '404':
+  /Matricula:
+    get:
+      operationId: searchMatricula
+      parameters:
+        - name: aluno
+        - name: turma
+        - name: status
+        - name: periodo
+      responses:
+        '200':
+    post:
+      summary: cria matrículas
+      description: ''
+      operationId: createMatricula
+      parameters:
+        - name: matriculas
+          in: body
+          description: lista de matrícula que devem ser criadas
+          required: true
+          schema:
+            $ref: '#/definitions/MatriculaCreateList'
+      responses:
+        '201':
+          description: ok
+          schema:
+            $ref: '#/definitions/MatriculaList'
+        '400':
+          description: bad request
+      tags:
+       - Matricula
+  /Matricula/{id}:
+    parameters:
+      - name: id
+    get:
+      operationId: detailMAtricula
+      responses:
+        '200':
+        '404':
+    patch:
+      summary: altera o status de uma matricula
+      description: ''
+      operationId: patchMatriculaStatus
+      consumes:
+        - application/json-patch+json
+      parameters:
+        - name: matriculaStatusPatch
+          in: body
+          description: patch de status da matrícula
+          schema:
+            $ref: '#/definitions/MatriculaPatchStatus'
+      responses:
+        '200':
+          description: ok
+          schema:
+            $ref: '#/definitions/Matricula'
+        '404':
+          description: not found
+      tags:
+       - Matricula
+  /Matricula/_history:
+    get:
+      parameters:
+        - name: periodo
+          in: query
+          description: preencher...
+          required: true
+          type: string
+        - name: aluno
+          in: query
+          description: id (matrícula) do aluno
+          required: true
+          type: string
+      reponses:
+        '200':
+          description: ok
+          schema:
+            $ref: '#/definitions/MatriculaHistoricoList1'
+  /Turma:
+    get:
+      operationId: searchTurma
+      parameters:
+        - name: periodo
+        - name: disciplina
+        - name: sede
+        - name: turno
+      responses:
+        '200':
+  /Turma/{id}:
+    parameters:
+      - name: id
+    get:
+      operationId: detailTurma
+      responses:
+        '200':
+        '404':
+definitions:
+  Aluno:
+    type: object
+  AlunoShort:
+    type: object
+  AlunoList:
+    type: array
+    items:
+      $ref: '#/definitions/AlunoShort'
+  Curso:
+    type: object
+  CursoShort:
+    type: object
+  CursoList:
+    type: array
+    items:
+      $ref: '#/definitions/CursoShort'
+  EstruturaCurricular:
+    type: object
+  EstruturaCurricularShort:
+    type: object
+  EstruturaCurricularList:
+    type: array
+    items:
+      $ref: '#/definitions/EstruturaCurricularShort'
+  DisciplinaEstruturaCurricular:
+    type: object
+  DisciplinaEstruturaCurricularList:
+    type: array
+    items:
+      $ref: '#/definitions/DisciplinaEstruturaCurricular'
+  Disciplina:
+    type: object
+  DisciplinaShort:
+    type: object
+  DisciplinaList:
+    type: array
+    items:
+      $ref: '#/definitions/DisciplinaShort'
+  HistoricoAcademico:
+    type: object
+  DisciplinaHistoricoAcademico:
+    type: object
+  DisciplinaHistoricoAcademicoList:
+    type: array
+    items:
+      $ref: '#/definitions/DisciplinaEstruturaCurricular'
+  Matricula:
+    type: object
+  MatriculaShort:
+    type: object
+  MatriculaList:
+    type: array
+    items:
+      $ref: '#/definitions/MatriculaShort'
+  MatriculaCreateList:
+    type: array
+    items:
+      type: object
+      properties:
+        aluno:
+          type: string
+          description: matrícula do aluno
+        turma:
+          type: string
+          description: id da turma
+        status:
+          type: string
+          description: status da matrícula
+  MatriculaPatchStatus:
+    type: array
+    items:
+      type: object
+      properties:
+        op: 
+          type: string
+          enum:
+            - replace
+        path: 
+          type: string
+          enum:
+            - '/status'
+        status:
+          type: string
+          description: novo status
+  MatriculaVersion:
+    description: "modelo para controle de versão de cada instância de 'Matricula'"
+    type: object
+    properties:
+      status:
+        type: string
+      _updated:
+        type: string
+  MatriculaVersionList:
+    description: "lista de versões de um instância de 'Matricula'"
+    type: array
+    items:
+      $ref: '#/definitions/MatriculaVersion'
+  MatriculaHistorico:
+    description: "instância de 'Matricula' com histórico"
+    type: object
+    allOf:
+      - $ref: '#/definitions/Matricula'
+      - type: object
+        properties:
+          versions:
+            $ref: '#/definitions/MatriculaVersionList'
+  MatriculaHistoricoList:
+    type: array
+    items:
+      $ref: '#/definitions/MatriculaHistorico'
+  Turma:
+    type: object
+  TurmaShort:
+    type: object
+  TurmaList:
+    type: array
+    items:
+      $ref: '#/definitions/TurmaShort'

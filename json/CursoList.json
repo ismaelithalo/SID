@@ -1,0 +1,16 @@
+[
+    {
+        "_type": "CursoShort",
+        "codigo": "6351",
+        "nome": "ENGENHARIA DE REDES DE COMUNICAÇÃO",
+        "modalidade": "Presencial",
+        "grauAcademico": "Bacharel"
+    },
+    {
+        "_type": "CursoShort",
+        "codigo": "6335",
+        "nome": "ENGENHARIA ELÉTRICA",
+        "modalidade": "Presencial",
+        "grauAcademico": "Engenheiro Eletricista"
+    }
+]

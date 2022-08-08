@@ -1,0 +1,26 @@
+{
+    "_type": "Turma",
+    "codigo": "02",
+    "vagasOfertadas": 40,
+    "vagasOcupadas": 34,
+    "disciplina": {
+        "codigo": "ENE0045",
+        "nome": "ELETRÔNICA"
+    },
+    "horarios": [
+        {
+            "dia": "Segunda",
+            "horaInicio": "14:00",
+            "horaFim": "15:50"
+        },
+        {
+            "dia": "Quarta",
+            "horaInicio": "14:00",
+            "horaFim": "15:50"
+        }
+    ],
+    "periodoLetivo": {
+        "ano": 2022,
+        "numero": 1
+    }
+}

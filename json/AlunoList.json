@@ -1,0 +1,29 @@
+[
+    {
+        "_type": "AlunoShort",
+        "matricula": "190030194",
+        "nome": "Ismael Ithalo Barbosa Pinto",
+        "curso": {
+            "_type": "Curso",
+            "nome": "ENGENHARIA DE REDES DE COMUNICAÇÃO"
+        }
+    },
+    {
+        "_type": "AlunoShort",
+        "matricula": "190028025",
+        "nome": "Gabriel Gaspar Stein",
+        "curso": {
+            "_type": "Curso",
+            "nome": "ENGENHARIA DE REDES DE COMUNICAÇÃO"
+        }
+    },
+    {
+        "_type": "AlunoShort",
+        "matricula": "180021362",
+        "nome": "Klainer Matheus Estrela",
+        "curso": {
+            "_type": "Curso",
+            "nome": "ENGENHARIA DE REDES DE COMUNICAÇÃO"
+        }
+    }
+]

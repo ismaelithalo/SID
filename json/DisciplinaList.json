@@ -1,0 +1,12 @@
+[
+    {
+        "_type": "DisciplinaShort",
+        "codigo": "ENE0039",
+        "nome": "SISTEMAS DIGITAIS"
+    },
+    {
+        "_type": "Disciplina",
+        "codigo": "ENE0088",
+        "nome": "SISTEMAS DE INFORMAÇÃO DISTRIBUÍDOS"
+    }
+]

@@ -1,0 +1,259 @@
+{
+    "_type": "Curriculo",
+    "codigo": "6351/1",
+    "status": "Ativo",
+    "disciplinas": [
+        {
+            "codigo": "ENE0026",
+            "nome": "Introdução a Engenharia de Redes"
+        },
+        {
+            "codigo": "ENE0334",
+            "nome": "Computação para Engenharia"
+        },
+        {
+            "codigo": "IFD0171",
+            "nome": "Física 1"
+        },
+        {
+            "codigo": "IFD0173",
+            "nome": "Física 1 Experimental"
+        },
+        {
+            "codigo": "MAT0025",
+            "nome": "Cálculo 1"
+        },
+        {
+            "codigo": "MAT0031",
+            "nome": "Introdução a Álgebra Linear"
+        },
+        {
+            "codigo": "ENE0013",
+            "nome": "Algoritmos e Estrutura de Dados"
+        },
+        {
+            "codigo": "ENE0039",
+            "nome": "Sistemas Digitais"
+        },
+        {
+            "codigo": "ENE0040",
+            "nome": "Lab. Sistemas Digitais"
+        },
+        {
+            "codigo": "EST0023",
+            "nome": "Probabilidade e Estatística"
+        },
+        {
+            "codigo": "IFD0175",
+            "nome": "Física 2"
+        },
+        {
+            "codigo": "MAT0026",
+            "nome": "Cálculo 2"
+        },
+        {
+            "codigo": "ENE0022",
+            "nome": "Projeto Transversal em Redes de Comunicação 1"
+        },
+        {
+            "codigo": "ENE0056",
+            "nome": "Sistemas Microprocessados"
+        },
+        {
+            "codigo": "ENE0058",
+            "nome": "Lab. Sistemas Microprocessados"
+        },
+        {
+            "codigo": "ENE0067",
+            "nome": "Sinais e Sistemas em Tempo Contínuo"
+        },
+        {
+            "codigo": "ENE0274",
+            "nome": "Fundamentos de Redes"
+        },
+        {
+            "codigo": "IFD0177",
+            "nome": "Física 2 Experimental"
+        },
+        {
+            "codigo": "MAT0027",
+            "nome": "Cálculo 3"
+        },
+        {
+            "codigo": "ENE0015",
+            "nome": "Fundamentos de Redes 2"
+        },
+        {
+            "codigo": "ENE0066",
+            "nome": "Introdução aos Circuitos Elétricos"
+        },
+        {
+            "codigo": "ENE0068",
+            "nome": "Sinais e Sistemas em Tempo Discreto"
+        },
+        {
+            "codigo": "ENE0091",
+            "nome": "Sistemas Operacionais de Redes"
+        },
+        {
+            "codigo": "ENE0177",
+            "nome": "Eletromagnetismo 1"
+        },
+        {
+            "codigo": "IQD0125",
+            "nome": "Química Geral Teórica"
+        },
+        {
+            "codigo": "MAT0080",
+            "nome": "Introdução a Teoria dos Grafos"
+        },
+        {
+            "codigo": "ECL0014",
+            "nome": "Ciências do Ambiente"
+        },
+        {
+            "codigo": "ENE0011",
+            "nome": "Lab. Redes"
+        },
+        {
+            "codigo": "ENE0025",
+            "nome": "Protocolos de Transporte e Roteamento"
+        },
+        {
+            "codigo": "ENE0276",
+            "nome": "Metodologia e Desenvolvimento de Software"
+        },
+        {
+            "codigo": "ENE0282",
+            "nome": "Lab. Circuitos Elétricos"
+        },
+        {
+            "codigo": "ENE0304",
+            "nome": "Circuitos Elétricos"
+        },
+        {
+            "codigo": "IQD0126",
+            "nome": "Química Geral Experimental"
+        },
+        {
+            "codigo": "ENE0024",
+            "nome": "Projeto Transversal em Redes de Comunicação 2"
+        },
+        {
+            "codigo": "ENE0045",
+            "nome": "Eletrônica"
+        },
+        {
+            "codigo": "ENE0046",
+            "nome": "Lab. Eletrônica"
+        },
+        {
+            "codigo": "ENE0089",
+            "nome": "Cabeamento Estruturado"
+        },
+        {
+            "codigo": "ENE0295",
+            "nome": "Lab. Princípios de Comunicação"
+        },
+        {
+            "codigo": "ENE0306",
+            "nome": "Princípios de Comunicação"
+        },
+        {
+            "codigo": "SOL0042",
+            "nome": "Introdução à Sociologia"
+        },
+        {
+            "codigo": "ECO0019",
+            "nome": "Introdução à Economia"
+        },
+        {
+            "codigo": "ENE0017",
+            "nome": "Avaliação de Desempenho de Redes e Sistemas"
+        },
+        {
+            "codigo": "ENE0211",
+            "nome": "Teoria da Informação"
+        },
+        {
+            "codigo": "ENE0262",
+            "nome": "Comunicações Digitais"
+        },
+        {
+            "codigo": "ENE0352",
+            "nome": "Redes Locais"
+        },
+        {
+            "codigo": "ENE0329",
+            "nome": "Comunicações Opticas"
+        },
+        {
+            "codigo": "ENE0016",
+            "nome": "Gerência de Redes e Sistemas"
+        },
+        {
+            "codigo": "ENE0064",
+            "nome": "Redes Sem Fio"
+        },
+        {
+            "codigo": "ENE0090",
+            "nome": "Segurança de Redes"
+        },
+        {
+            "codigo": "ENE0344",
+            "nome": "Comunicações Móveis"
+        },
+        {
+            "codigo": "FDD0155",
+            "nome": "Noções de Direito"
+        },
+        {
+            "codigo": "ENE0007",
+            "nome": "Redes de Telecomunicações"
+        },
+        {
+            "codigo": "ENE0088",
+            "nome": "Sistemas de Informação Distribuídos"
+        },
+        {
+            "codigo": "EPR0068",
+            "nome": "Organização Industrial"
+        },
+        {
+            "codigo": "FTD0007",
+            "nome": "Introdução a Atividade Empresarial"
+        },
+        {
+            "codigo": "ENE0062",
+            "nome": "Estágio Supervisionado"
+        },
+        {
+            "codigo": "ENE0342",
+            "nome": "Projeto Final de Graduação 1"
+        },
+        {
+            "codigo": "EPR0059",
+            "nome": "Higiene e Segurança no Trabalho"
+        },
+        {
+            "codigo": "ENE0343",
+            "nome": "Projeto Final de Graduação 2"
+        }
+    ],
+    "cargaHoraria": {
+        "totalMinima": 3750,
+        "totalObrigatoria": 2640,
+        "optativaMinima": 1110,
+        "complementarMinima": 0,
+        "maximaPeriodoLetivo": 450
+    },
+    "periodoLetivoVigenciaInicial": {
+        "ano": 2019,
+        "numero": 1
+    },
+    "prazo": {
+        "minimo": 0, 
+        "medio": 10,
+        "maximo": 20
+    }
+}

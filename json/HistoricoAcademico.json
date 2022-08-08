@@ -1,0 +1,45 @@
+{
+    "_type": "HistoricoAcademico",
+    "aluno": {
+        "matricula": "190030194",
+        "nome": "Ismael Ithalo Barbosa Pinto",
+        "curso": {
+            "_type": "Curso",
+            "nome": "ENGENHARIA DE REDES DE COMUNICAÇÃO"
+        },
+        "curriculo": "6351/1",
+        "periodoIngresso": {
+            "ano": 2019,
+            "numero": 1
+        }
+    },
+    "turmasPassadas": [
+        {
+            "codigo": "02",
+            "disciplina": {
+                "codigo": "ENE0045",
+                "nome": "ELETRÔNICA"
+            },
+            "mencao": "MS"
+
+        },
+        {
+            "codigo": "03",
+            "disciplina": {
+                "codigo": "ENE0046",
+                "nome": "LABORATÓRIO DE ELETRÔNICA"
+            },
+            "mencao": "MM"
+        }
+    ],
+    "disciplinasResantes": [
+        {
+            "codigo": "ENE0039",
+            "nome": "SISTEMAS DIGITAIS"
+        },
+        {
+            "codigo": "ENE0088",
+            "nome": "SISTEMAS DE INFORMAÇÃO DISTRIBUÍDOS"
+        }
+    ]
+}
