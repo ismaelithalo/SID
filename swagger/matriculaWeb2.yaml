@@ -3,37 +3,38 @@ info:
   description: "Descrição."
   version: "1.0.0"
   title: "Matrícula Web 2"
-  termsOfService: "http://sid.redes.unb.br/terms/"
+  termsOfService: "http://sid.redes.unb.br/termos/"
   contact:
     email: "sid@redes.unb.br"
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 host: "sid.redes.unb.br"
-basePath: "/sid/IsmaelGabrielKlainer/mw2"
+basePath: "/mw2"
 schemes:
-- "https"
-- "http"
+  - "https"
+  - "http"
+
 ###########################################################
 ###########################################################
+
 tags:
-- name: "Aluno"
-  description: "Descrição das rotas de aluno"
-- name: "Disciplina"
-  description: "Descrição das rotas de disciplina"
-- name: "Curso"
-  description: "Descrição das rotas de curso"
-- name: "Turma"
-  description: "Descrição das rotas de turma"
-- name: "Matrícula"
-  description: "Descrição das rotas de matrícula"
-- name: "Histórico"
-  description: "Descrição das rotas de histórico"
-    # externalDocs:
-  #   description: "Find out more"
-  #   url: "http://swagger.io"
+  - name: "Aluno"
+    description: "Descrição das rotas de aluno"
+  - name: "Disciplina"
+    description: "Descrição das rotas de disciplina"
+  - name: "Curso"
+    description: "Descrição das rotas de curso"
+  - name: "Turma"
+    description: "Descrição das rotas de turma"
+  - name: "Matrícula"
+    description: "Descrição das rotas de matrícula"
+  - name: "Histórico"
+    description: "Descrição das rotas de histórico"
+
 ###########################################################
 ###########################################################
+
 paths:
   /aluno:
     get:
@@ -55,11 +56,11 @@ paths:
         "200":
           description: "Ok"
       parameters:
-      - name: id
-        in: path
-        description: Filtro por nome
-        type: string
-        required: true
+        - name: id
+          in: path
+          description: Filtro por nome
+          type: string
+          required: true
   /disciplina:
     get:
       tags:
@@ -75,44 +76,44 @@ paths:
         "200":
           description: "Ok"
       parameters:
-      - name: id
-        in: path
-        description: Filtro por nome
-        type: string
-        required: true
+        - name: id
+          in: path
+          description: Filtro por nome
+          type: string
+          required: true
   /curso:
     get:
-        tags:
-          - "Curso"
-        responses:
-          "200":
-            description: "Ok"
-        parameters:
+      tags:
+        - "Curso"
+      responses:
+        "200":
+          description: "Ok"
+      parameters:
         - name: nome
           in: query
           description: Filtro por nome
           type: string
   /curso/{id}:
     get:
-        tags:
-          - "Curso"
-        responses:
-          "200":
-            description: "Ok"
-        parameters:
+      tags:
+        - "Curso"
+      responses:
+        "200":
+          description: "Ok"
+      parameters:
         - name: id
           in: path
           description: Filtro por nome
           type: string
           required: true
-  /curso/{id}/curriculo/:
+  /curso/{id}/curriculos/:
     get:
-        tags:
-          - "Curso"
-        responses:
-          "200":
-            description: "Ok"
-        parameters:
+      tags:
+        - "Curso"
+      responses:
+        "200":
+          description: "Ok"
+      parameters:
         - name: id
           in: path
           description: Filtro por nome
@@ -126,14 +127,14 @@ paths:
           enum:
             - Ativo
             - Desativado
-  /curso/{id}/curriculo/{id}:
+  /curso/{id}/curriculos/{curriculo}:
     get:
-        tags:
-          - "Curso"
-        responses:
-          "200":
-            description: "Ok"
-        parameters:
+      tags:
+        - "Curso"
+      responses:
+        "200":
+          description: "Ok"
+      parameters:
         - name: id
           in: path
           description: Filtro por nome
@@ -144,14 +145,14 @@ paths:
           description: Filtro por nome
           type: string
           required: true
-  /curso/{id}/curriculo/{id}/disciplina:
+  /curso/{id}/curriculos/{curriculo}/disciplinas:
     get:
-        tags:
-          - "Curso"
-        responses:
-          "200":
-            description: "Ok"
-        parameters:
+      tags:
+        - "Curso"
+      responses:
+        "200":
+          description: "Ok"
+      parameters:
         - name: id
           in: path
           description: Filtro por nome
@@ -184,14 +185,14 @@ paths:
             - Presencial
             - Hibrido
             - EAD
-  /curso/{id}/curriculo/{id}/disciplina/{disciplina}:
+  /curso/{id}/curriculos/{curriculo}/disciplinas/{disciplina}:
     get:
-        tags:
-          - "Curso"
-        responses:
-          "200":
-            description: "Ok"
-        parameters:
+      tags:
+        - "Curso"
+      responses:
+        "200":
+          description: "Ok"
+      parameters:
         - name: id
           in: path
           description: Filtro por nome
@@ -231,12 +232,12 @@ paths:
             - EAD
   /turma:
     get:
-        tags:
-          - "Turma"
-        responses:
-          "200":
-            description: "Ok"
-        parameters:
+      tags:
+        - "Turma"
+      responses:
+        "200":
+          description: "Ok"
+      parameters:
         - name: disciplina
           in: query
           description: Filtro por nome
@@ -268,12 +269,12 @@ paths:
             - Noturno
   /turma/{id}:
     get:
-        tags:
-          - "Turma"
-        responses:
-          "200":
-            description: "Ok"
-        parameters:
+      tags:
+        - "Turma"
+      responses:
+        "200":
+          description: "Ok"
+      parameters:
         - name: id
           in: path
           description: Filtro por nome
@@ -281,12 +282,12 @@ paths:
           required: true
   /matricula:
     get:
-        tags:
-          - "Matrícula"
-        responses:
-          "200":
-            description: "Ok"
-        parameters:
+      tags:
+        - "Matrícula"
+      responses:
+        "200":
+          description: "Ok"
+      parameters:
         - name: aluno
           in: query
           description: Quando especificado a matrícula retorna apenas as informações das turmas (não são retornadas informações do aluno). Não é possível utilizar esse parâmetro junto do parâmetro turma.
@@ -307,45 +308,84 @@ paths:
     post:
       summary: "Cria matrículas"
       tags:
-          - "Matrícula"
+        - "Matrícula"
       responses:
         "200":
-            description: "Ok"
+          description: "Ok"
       parameters:
         - name: matriculas
           in: body
           description: Quando especificado a matrícula retorna apenas as informações das turmas (não são retornadas informações do aluno). Não é possível utilizar esse parâmetro junto do parâmetro turma.
           type: string
           required: true
-          schema: '#/definitions/MatriculaCreateList' 
-  /matricula/{id}: 
+          schema: "#/definitions/MatriculaCreateList"
+  /matricula/_history:
     get:
-        tags:
-          - "Matrícula"
-        responses:
-          "200":
-            description: "Ok"
+      tags:
+        - "Matrícula"
+      responses:
+        "200":
+          description: "Ok"
+      parameters:
+        - name: aluno
+          in: query
+          description: Quando especificado a matrícula retorna apenas as informações das turmas (não são retornadas informações do aluno). Não é possível utilizar esse parâmetro junto do parâmetro turma.
+          type: string
+        - name: status
+          in: query
+          description: Filtro por status
+          type: string
+          enum:
+            - Matriculado
+            - Pedido
+            - Indeferido
+            - Trancamento
+        - name: turma
+          in: query
+          description: Filtro por turma. Não é possível utilizar esse parâmetro junto com Aluno.
+          type: string
+    post:
+      summary: "Cria matrículas"
+      tags:
+        - "Matrícula"
+      responses:
+        "200":
+          description: "Ok"
+      parameters:
+        - name: matriculas
+          in: body
+          description: Quando especificado a matrícula retorna apenas as informações das turmas (não são retornadas informações do aluno). Não é possível utilizar esse parâmetro junto do parâmetro turma.
+          type: string
+          required: true
+          schema: "#/definitions/MatriculaCreateList"
+  /matricula/{id}:
+    get:
+      tags:
+        - "Matrícula"
+      responses:
+        "200":
+          description: "Ok"
   /historico/aluno/{id}:
     get:
-        tags:
-          - "Histórico"
-        responses:
-          "200":
-            description: "Ok"
-        parameters:
+      tags:
+        - "Histórico"
+      responses:
+        "200":
+          description: "Ok"
+      parameters:
         - name: id
           in: path
           description: Filtro por nome
           type: string
           required: true
-  /historico/aluno/{id}/disciplina/:
+  /historico/aluno/{id}/disciplinas/:
     get:
-        tags:
-          - "Histórico"
-        responses:
-          "200":
-            description: "Ok"
-        parameters:
+      tags:
+        - "Histórico"
+      responses:
+        "200":
+          description: "Ok"
+      parameters:
         - name: id
           in: path
           description: Filtro por nome
@@ -375,14 +415,14 @@ paths:
             - Matutino
             - Vespertino
             - Noturno
-  /historico/aluno/{id}/disciplina/{disciplina}:
+  /historico/aluno/{id}/disciplinas/{disciplina}:
     get:
-        tags:
-          - "Histórico"
-        responses:
-          "200":
-            description: "Ok"
-        parameters:
+      tags:
+        - "Histórico"
+      responses:
+        "200":
+          description: "Ok"
+      parameters:
         - name: id
           in: path
           description: Filtro por nome
@@ -393,14 +433,14 @@ paths:
           description: Filtro por nome
           type: string
           required: true
-  /historico/aluno/{id}/disciplina/{disciplina}/$preRequisitos:
+  /historico/aluno/{id}/disciplinas/{disciplina}/$preRequisitos:
     get:
-        tags:
-          - "Histórico"
-        responses:
-          "200":
-            description: "Ok"
-        parameters:
+      tags:
+        - "Histórico"
+      responses:
+        "200":
+          description: "Ok"
+      parameters:
         - name: id
           in: path
           description: Filtro por nome
@@ -411,17 +451,19 @@ paths:
           description: Filtro por nome
           type: string
           required: true
+
 ###########################################################
 ###########################################################
+
 definitions:
   Aluno:
     type: "object"
     properties:
-      matricula: 
+      matricula:
         type: "string"
-      nome: 
+      nome:
         type: "string"
-      curriculo: 
+      curriculo:
         type: "string"
       ira:
         type: "number"
@@ -429,7 +471,7 @@ definitions:
       periodoIngresso:
         type: "object"
         properties:
-          ano: 
+          ano:
             type: "integer"
           numero:
             type: "integer"
@@ -438,14 +480,18 @@ definitions:
   AlunoShort:
     type: "object"
     properties:
-      matricula: 
+      matricula:
         type: "string"
-      nome: 
+      nome:
         type: "string"
+  AlunoList:
+    type: array
+    items:
+      $ref: "#/definitions/AlunoShort"
   Curso:
     type: "object"
-    properties: 
-      codigo: 
+    properties:
+      codigo:
         type: "string"
       nome:
         type: "string"
@@ -483,10 +529,14 @@ definitions:
   CursoShort:
     type: "object"
     properties:
-      codigo: 
+      codigo:
         type: "string"
       nome:
         type: "string"
+  CursoList:
+    type: array
+    items:
+      $ref: "#/definitions/CursoShort"
   Disciplina:
     type: "object"
     properties:
@@ -497,9 +547,9 @@ definitions:
       unidade:
         type: "object"
         properties:
-          codigo: 
+          codigo:
             type: "string"
-          nome: 
+          nome:
             type: "string"
       cargaHoraria:
         type: "object"
@@ -520,6 +570,10 @@ definitions:
         type: "string"
       nome:
         type: "string"
+  DisciplinaList:
+    type: array
+    items:
+      $ref: "#/definitions/DisciplinaShort"
   Turma:
     type: "object"
     properties:
@@ -530,12 +584,12 @@ definitions:
       vagasOcupadas:
         type: "integer"
       disciplina:
-        $ref: "#/definitions/DisciplinaShort"     
+        $ref: "#/definitions/DisciplinaShort"
       horarios:
         type: "array"
         items:
           type: "object"
-          properties: 
+          properties:
             dia:
               type: "string"
             horaInicio:
@@ -549,39 +603,102 @@ definitions:
             type: "integer"
           numero:
             type: "integer"
+  TurmaShort:
+    type: "object"
+    properties:
+      codigo:
+        type: "string"
+      disciplina:
+        $ref: "#/definitions/DisciplinaShort"
+  TurmaList:
+    type: array
+    items:
+      $ref: "#/definitions/TurmaShort"
+  DisciplinaCurriculo:
+    type: "object"
+    properties:
+      tipo:
+        type: "string"
+      nivel:
+        type: "string"
+      modalidade:
+        type: "string"
+  DisciplinaCurriculoList:
+    type: array
+    items:
+      $ref: "#/definitions/DisciplinaCurriculo"
+  DisciplinaHistorico:
+    type: "object"
+    properties:
+      aprovacao:
+        type: "boolean"
+      mencao:
+        type: "string"
+      turma:
+        $ref: "#/definitions/TurmaShort"
+  DisciplinaHistoricoList:
+    type: array
+    items:
+      $ref: "#/definitions/DisciplinaHistorico"
   Historico:
     type: "object"
     properties:
       aluno:
         $ref: "#/definitions/AlunoShort"
       disciplinas:
-        type: "array"
-        items:
-          type: "object"
-          properties:
-            aprovacao:
-              type: "boolean"
-            mencao:
-              type: "string"
-            turma:
-              type: "object"
-              properties:
+        $ref: "#/definitions/DisciplinaHistoricoList"
   Curriculo:
+    type: "object"
+    properties:
+      codigo:
+        type: "string"
+      status:
+        type: "string"
+      disciplinas:
+        $ref: "#/definitions/DisciplinaCurriculoList"
   CurriculoShort:
+    type: "object"
+    properties:
+      codigo:
+        type: "string"
   CurriculoList:
+    type: array
+    items:
+      $ref: "#/definitions/CurriculoShort"
   Matricula:
-  DisciplinaCurriculo:
-  DisciplinaCurriculoList:
-  DisciplinaHistorico:
-  DisciplinaHistoricoList:
+    type: "object"
+    properties:
+      status:
+        type: "string"
+      turma:
+        $ref: "#/definitions/TurmaShort"
+      aluno:
+        $ref: "#/definitions/AlunoShort"
+  MatriculaList:
+    type: array
+    items:
+      $ref: "#/definitions/Matricula"
   MatriculaCreateList:
+    type: array
+    items:
+      type: object
+      properties:
+        aluno:
+          type: string
+          description: matrícula do aluno
+        turma:
+          type: string
+          description: id da turma
+        status:
+          type: string
+          description: status da matrícula
   MatriculaPatchStatus:
     type: array
     items:
-      type: "object"
+      type: object
       properties:
         op:
-          type: "string"
+          type: string
           enum:
             - replace
         path:
@@ -590,11 +707,35 @@ definitions:
             - "/status"
         status:
           type: string
-
-
-
+          description: novo status
+  MatriculaVersion:
+    description: "modelo para controle de versão de cada instância de 'Matricula'"
+    type: object
+    properties:
+      status:
+        type: string
+      _updated:
+        type: string
+  MatriculaVersionList:
+    description: "lista de versões de um instância de 'Matricula'"
+    type: array
+    items:
+      $ref: "#/definitions/MatriculaVersion"
+  MatriculaHistorico:
+    description: "instância de 'Matricula' com histórico"
+    type: object
+    allOf:
+      - $ref: "#/definitions/Matricula"
+      - type: object
+        properties:
+          versions:
+            $ref: "#/definitions/MatriculaVersionList"
+  MatriculaHistoricoList:
+    type: array
+    items:
+      $ref: "#/definitions/MatriculaHistorico"
 ###########################################################
 ###########################################################
 # externalDocs:
-#   description: "Find out more about Swagger"
-#   url: "http://swagger.io"
+#   description: "Aplicação Base"
+#   url: "https://sig.unb.br/sigaa/"
