@@ -10,7 +10,7 @@ info:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 host: "sid.redes.unb.br"
-basePath: "/mw2"
+basePath: "/sid/IsmaelGabrielKlainer/mw2"
 schemes:
 - "https"
 - "http"
