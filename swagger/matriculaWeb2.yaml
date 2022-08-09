@@ -40,132 +40,209 @@ paths:
     get:
       tags:
         - "Aluno"
+      summary: Busca de alunos
+      operationId: searchAluno
       parameters:
         - name: nome
           in: query
-          description: Filtro por nome
+          description: Busca de alunos por nome
+          required: false
+          type: string
+        - name: curriculo
+          in: query
+          description: Busca de alunos pelo código do currículo
+          required: false
+          type: string
+        - name: curso
+          in: query
+          description: Busca de aluno pelo código do curso
+          required: false
+          type: string
+        - name: unidade
+          in: query
+          description: Busca de alunos pela unidade do curso
+          required: false
           type: string
       responses:
         "200":
           description: "Ok"
+          schema:
+            $ref: "#/definitions/AlunoList"
   /aluno/{id}:
     get:
       tags:
         - "Aluno"
-      responses:
-        "200":
-          description: "Ok"
+      summary: Busca de aluno específico
+      operationId: detailAluno
       parameters:
         - name: id
           in: path
-          description: Filtro por nome
+          description: Buscar aluno especificando o id (matrícula)
           type: string
           required: true
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/Aluno"
+        "404":
+          description: not found
   /disciplina:
     get:
       tags:
         - "Disciplina"
+      operationId: searchDisciplina
+      summary: Busca de disciplinas
+      parameters:
+        - name: nome
+          in: query
+          description: Busca de disciplinas pelo nome
+          required: false
+          type: string
+        - name: unidade
+          in: query
+          description: Busca de disciplinas pela unidade
+          required: false
+          type: string
       responses:
         "200":
           description: "Ok"
+          schema:
+            $ref: "#/definitions/DisciplinaList"
   /disciplina/{id}:
     get:
       tags:
         - "Disciplina"
-      responses:
-        "200":
-          description: "Ok"
+      operationId: detailDisciplina
+      summary: Busca de disciplina específica
       parameters:
         - name: id
           in: path
-          description: Filtro por nome
+          description: Buscar disciplina específica pelo id (codigo)
           type: string
           required: true
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/Disciplina"
+        "404":
+          description: not found
   /curso:
     get:
       tags:
         - "Curso"
-      responses:
-        "200":
-          description: "Ok"
+      operationId: searchCurso
+      summary: Busca de cursos
       parameters:
         - name: nome
           in: query
-          description: Filtro por nome
+          description: Busca de cursos pelo nome do curso
           type: string
+          required: false
+        - name: unidade
+          in: query
+          description: Busca de cursos pela unidade
+          type: string
+          required: false
+        - name: sede
+          in: query
+          description: Busca de cursos pela sede
+          type: string
+          required: false
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/CursoList"
   /curso/{id}:
     get:
       tags:
         - "Curso"
-      responses:
-        "200":
-          description: "Ok"
+      operationId: detailCurso
+      summary: Busca de curso específico
       parameters:
         - name: id
           in: path
-          description: Filtro por nome
+          description: Buscar curso específico pelo id (código)
           type: string
           required: true
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/Curso"
+        "404":
+          description: not found
   /curso/{id}/curriculos/:
     get:
       tags:
         - "Curso"
-      responses:
-        "200":
-          description: "Ok"
+      operationId: searchCurriculoCurso
+      summary: Busca de curriculos de curso específico
       parameters:
         - name: id
           in: path
-          description: Filtro por nome
+          description: Buscar curriculos de um curso especifico
           type: string
           required: true
         - name: status
           in: query
-          description: Filtro por nome
+          description: Buscar currículos ativos ou desativados de um curso específico
           type: string
           required: false
           enum:
             - Ativo
             - Desativado
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/CurriculoList"
   /curso/{id}/curriculos/{curriculo}:
     get:
       tags:
         - "Curso"
-      responses:
-        "200":
-          description: "Ok"
+      operationId: detailCurriculoCurso
+      summary: Busca de curriculo específico de curso específico
       parameters:
         - name: id
           in: path
-          description: Filtro por nome
+          description: Id (código) do curso
           type: string
           required: true
         - name: curriculo
           in: path
-          description: Filtro por nome
+          description: Id (código) do currículo
           type: string
           required: true
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/Curriculo"
+        "404":
+          description: not found
   /curso/{id}/curriculos/{curriculo}/disciplinas:
     get:
       tags:
         - "Curso"
-      responses:
-        "200":
-          description: "Ok"
+      operationId: searchDisciplinaCurriculoCurso
+      summary: Busca de disciplinas de curriculo específico de curso específico
       parameters:
         - name: id
           in: path
-          description: Filtro por nome
+          description: Id (código) du curso
           type: string
           required: true
         - name: curriculo
           in: path
-          description: Filtro por nome
+          description: Id (código) dp currículo
           type: string
           required: true
         - name: tipo
           in: query
-          description: Filtro por nome
+          description: Buscar disciplinas pelo tipo (restrição de domínio)
           type: string
           required: false
           enum:
@@ -173,44 +250,48 @@ paths:
             - Optativa
         - name: nivel
           in: query
-          description: Filtro por nome
+          description: Buscar disciplinas por nivel
           type: integer
           required: false
         - name: modalidade
           in: query
-          description: Filtro por nome
+          description: Buscar disciplinas por modalidade (restrição de domínio)
           type: string
           required: false
           enum:
             - Presencial
             - Hibrido
             - EAD
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/DisciplinaCurriculoList"
   /curso/{id}/curriculos/{curriculo}/disciplinas/{disciplina}:
     get:
       tags:
         - "Curso"
-      responses:
-        "200":
-          description: "Ok"
+      operationId: detailDisciplinaCurriculoCurso
+      summary: Busca de disciplina específica de curriculo específico de curso específico
       parameters:
         - name: id
           in: path
-          description: Filtro por nome
+          description: Id (código)  do curso
           type: string
           required: true
         - name: curriculo
           in: path
-          description: Filtro por nome
+          description: Id (código) do currículo
           type: string
           required: true
         - name: disciplina
           in: path
-          description: Filtro por nome
+          description: Id (código) da disciplina
           type: string
           required: true
         - name: tipo
           in: query
-          description: Filtro por nome
+          description: Buscar disciplina por tipo
           type: string
           required: false
           enum:
@@ -218,39 +299,45 @@ paths:
             - Optativa
         - name: nivel
           in: query
-          description: Filtro por nome
+          description: Buscar disciplina por nível
           type: integer
           required: false
         - name: modalidade
           in: query
-          description: Filtro por nome
+          description: Buscar disciplina por modalidade
           type: string
           required: false
           enum:
             - Presencial
             - Hibrido
             - EAD
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/DisciplinaCurriculo"
+        "404":
+          description: not found
   /turma:
     get:
       tags:
         - "Turma"
-      responses:
-        "200":
-          description: "Ok"
+      operationId: searchTurma
+      summary: Busca turmas
       parameters:
         - name: disciplina
           in: query
-          description: Filtro por nome
+          description: Buscar turma por disciplina
           type: string
           required: false
         - name: periodo
           in: query
-          description: Filtro por nome
+          description: Buscar turma por período
           type: string
           required: true
         - name: sede
           in: query
-          description: Filtro por nome
+          description: Buscar turma por sede
           type: string
           required: false
           enum:
@@ -260,140 +347,189 @@ paths:
             - Gama
         - name: turno
           in: query
-          description: Filtro por nome
+          description: Buscar turma por turno
           type: string
           required: false
           enum:
             - Matutino
             - Vespertino
             - Noturno
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/TurmaList"
   /turma/{id}:
     get:
       tags:
         - "Turma"
-      responses:
-        "200":
-          description: "Ok"
+      operationId: detailTurma
+      summary: Buscar turma específica
       parameters:
         - name: id
           in: path
-          description: Filtro por nome
+          description: Identificador da turma
           type: string
           required: true
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/Turma"
+        "404":
+          description: not found
   /matricula:
     get:
       tags:
         - "Matrícula"
-      responses:
-        "200":
-          description: "Ok"
+      operationId: searchMatricula
+      summary: Busca turma específica
       parameters:
         - name: aluno
           in: query
           description: Quando especificado a matrícula retorna apenas as informações das turmas (não são retornadas informações do aluno). Não é possível utilizar esse parâmetro junto do parâmetro turma.
           type: string
+          required: false
         - name: status
           in: query
-          description: Filtro por status
+          description: Busca de matrícula por status
           type: string
           enum:
             - Matriculado
             - Pedido
             - Indeferido
             - Trancamento
+          required: false
         - name: turma
           in: query
           description: Filtro por turma. Não é possível utilizar esse parâmetro junto com Aluno.
           type: string
-    post:
-      summary: "Cria matrículas"
-      tags:
-        - "Matrícula"
+          required: false
+        - name: periodo
+          in: query
+          description: Buscar turma por período
+          type: string
+          required: false
       responses:
         "200":
           description: "Ok"
+          schema:
+            $ref: "#/definitions/MatriculaList"
+    post:
+      tags:
+        - "Matrícula"
+      operationId: createMatricula
+      summary: "Cria matrículas"
       parameters:
         - name: matriculas
           in: body
-          description: Quando especificado a matrícula retorna apenas as informações das turmas (não são retornadas informações do aluno). Não é possível utilizar esse parâmetro junto do parâmetro turma.
+          description: Lista de matrícula que devem ser criadas
           type: string
           required: true
-          schema: "#/definitions/MatriculaCreateList"
-  /matricula/_history:
-    get:
-      tags:
-        - "Matrícula"
+          schema:
+            $ref: "#/definitions/MatriculaCreateList"
       responses:
-        "200":
+        "201":
           description: "Ok"
-      parameters:
-        - name: aluno
-          in: query
-          description: Quando especificado a matrícula retorna apenas as informações das turmas (não são retornadas informações do aluno). Não é possível utilizar esse parâmetro junto do parâmetro turma.
-          type: string
-        - name: status
-          in: query
-          description: Filtro por status
-          type: string
-          enum:
-            - Matriculado
-            - Pedido
-            - Indeferido
-            - Trancamento
-        - name: turma
-          in: query
-          description: Filtro por turma. Não é possível utilizar esse parâmetro junto com Aluno.
-          type: string
-    post:
-      summary: "Cria matrículas"
-      tags:
-        - "Matrícula"
-      responses:
-        "200":
-          description: "Ok"
-      parameters:
-        - name: matriculas
-          in: body
-          description: Quando especificado a matrícula retorna apenas as informações das turmas (não são retornadas informações do aluno). Não é possível utilizar esse parâmetro junto do parâmetro turma.
-          type: string
-          required: true
-          schema: "#/definitions/MatriculaCreateList"
+          schema:
+            $ref: "#/definitions/MatriculaList"
+        "400":
+          description: bad request
   /matricula/{id}:
     get:
       tags:
         - "Matrícula"
+      operationId: detailMAtricula
+      summary: Buscar matrícula específica
+      parameters:
+        - name: id
+          in: path
+          description: Id da matrícula
+          type: string
+          required: true
       responses:
         "200":
           description: "Ok"
+          schema:
+            $ref: "#/definitions/Matricula"
+        "404":
+          description: not found
+    patch:
+      tags:
+        - "Matrícula"
+      summary: altera o status de uma matricula
+      operationId: patchMatriculaStatus
+      consumes:
+        - application/json-patch+json
+      parameters:
+        - name: matriculaStatusPatch
+          in: body
+          description: patch de status da matrícula
+          schema:
+            $ref: "#/definitions/MatriculaPatchStatus"
+      responses:
+        "200":
+          description: ok
+          schema:
+            $ref: "#/definitions/Matricula"
+        "404":
+          description: not found
+  /matricula/_history:
+    get:
+      tags:
+        - "Matrícula"
+      operationId: searchMatriculaHistory
+      summary: "Busca histórico de matrícula"
+      parameters:
+        - name: periodo
+          in: query
+          description: Buscar histórico de matrículas
+          required: true
+          type: string
+        - name: aluno
+          in: query
+          description: id (matrícula) do aluno
+          required: true
+          type: string
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/MatriculaHistoricoList"
   /historico/aluno/{id}:
     get:
       tags:
         - "Histórico"
-      responses:
-        "200":
-          description: "Ok"
+      operationId: detailHistoricoAcademico
+      summary: "Buscar histórico acadêmico de aluno"
       parameters:
         - name: id
           in: path
-          description: Filtro por nome
+          description: Id (matrícula) do aluno
           type: string
           required: true
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/Historico"
+        "400":
+          description: bad request
   /historico/aluno/{id}/disciplinas/:
     get:
       tags:
         - "Histórico"
-      responses:
-        "200":
-          description: "Ok"
+      operationId: searchDisciplinaHistoricoAcademico
+      summary: "Buscar disciplinas de histórico acadêmico de aluno"
       parameters:
         - name: id
           in: path
-          description: Filtro por nome
+          description: Id (matrícula) de aluno
           type: string
           required: true
         - name: tipo
           in: query
-          description: Filtro por nome
+          description: Buscar disciplina por tipo
           type: string
           required: false
           enum:
@@ -401,56 +537,73 @@ paths:
             - Optativa
         - name: status
           in: query
-          description: Filtro por nome
+          description: Buscar disciplina por status
           type: integer
           required: false
           enum:
             - Aprovado
         - name: periodo
           in: query
-          description: Filtro por nome
+          description: Buscar disciplina por período
           type: integer
           required: false
           enum:
             - Matutino
             - Vespertino
             - Noturno
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/DisciplinaHistoricoList"
   /historico/aluno/{id}/disciplinas/{disciplina}:
     get:
       tags:
         - "Histórico"
-      responses:
-        "200":
-          description: "Ok"
+      operationId: detailDisciplinaHistoricoAcademico
+      summary: "Buscar disciplina específica de histórico acadêmico de aluno"
       parameters:
         - name: id
           in: path
-          description: Filtro por nome
+          description: Id (matricula) de aluno
           type: string
           required: true
         - name: disciplina
           in: path
-          description: Filtro por nome
+          description: Id (codigo) da disciplina
           type: string
           required: true
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/DisciplinaHistorico"
+        "400":
+          description: bad request
   /historico/aluno/{id}/disciplinas/{disciplina}/$preRequisitos:
     get:
       tags:
         - "Histórico"
-      responses:
-        "200":
-          description: "Ok"
+      operationId: verificaPreRequisitosHistoricoAcademico
+      summary: "Buscar disciplinas com base nos pre requisitos de aluno"
       parameters:
         - name: id
           in: path
-          description: Filtro por nome
+          description: Id (matrícula) do aluno
           type: string
           required: true
         - name: disciplina
           in: path
-          description: Filtro por nome
+          description: Id (código) da disciplna
           type: string
           required: true
+      responses:
+        "200":
+          description: "Ok"
+          schema:
+            $ref: "#/definitions/DisciplinaCurriculoList"
+        "400":
+          description: not found
 
 ###########################################################
 ###########################################################
